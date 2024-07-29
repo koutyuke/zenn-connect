@@ -5,7 +5,7 @@ type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [
   "Cloudflare", "ElysiaJS", "Wrangler"
 ]
-published: false
+published: true
 ---
 
 初めまして、NITICのこうちゅけです。
