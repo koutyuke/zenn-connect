@@ -3,7 +3,7 @@
 	"type": "module",
 	"scripts": {
 		"preview": "zenn preview",
-		"new:article": "zenn new:article",
+		"new:art": "zenn new:article",
 		"new:book": "zenn new:book"
 	},
 	"dependencies": {
