@@ -13,6 +13,8 @@ published: true
 
 しかし、Typescriptでコーディングしていると、Tailwindcssのデザイントークンに関する型情報がなくてモヤモヤすることが時たまあります。
 
+(実際にはデフォルトの設定のままでtailwindcssを使用しているのであれば公式から型が用意してあるのですが独自のテーマを設定しているとそれも込みの型が欲しいですよね。)
+
 また、動的にclassを変更する関数を実装しようとした際に型情報がなく型をハードコードすることもあると思います。
 
 今回は設定ファイルから直接、`color`の型や`padding`, `margin`などで使用されているScale(lgや4,8など)の型情報を取得します。
@@ -101,15 +103,19 @@ type ZIndex = keyof ResolveConfigTheme["zIndex"];
 tailwindcssのconfigファイルを作成します。
 
 ```sh
-bunx tailwindcs init
+# 1
+bunx tailwindcss init
+
+# 2
+bunx tailwindcss init --ts
 ```
 
-コマンドで作成すると`.js`ファイルが生成されますが __`.ts`__ に直してください。
+1のコマンドで作成すると`.js`ファイルが生成されますが __`.ts`__ に直してください。
 
 型を取得するのに`.js`だと取れるものも取れませんからね。
 
 :::message
-tailwindcssの設定ファイルは __.ts__ ファイルで作成してください
+tailwindcssの設定ファイルは __.ts__ ファイルで作成する
 :::
 
 ### カスタマイズする
@@ -161,7 +167,7 @@ Config型のObjectデータにしてしまうと、後述する設定の結合�
 
 ## 型を抽出する
 
-configができたら次はデフォルトのconfigとマージする必要があります。
+configができたら次はデフォルトのconfigと結合する必要があります。
 tailwindcssは設定の結合する関数を`tailwindcss/resolveConfig`で用意しているのでこれを使用します。
 
 ```ts
@@ -211,7 +217,7 @@ declare function resolveConfig<T extends Config>(config: T): ResolvedConfig<T>
 export = resolveConfig
 ```
 
-まぁ、要約すると`resolveConfig`の型引数にマージしたいObjectの型を渡せばいいだけです。
+まぁ、要約すると`resolveConfig`の型引数に結合したいObjectの型を渡せばいいだけです。
 
 ```ts
 import type resolveConfig from "tailwindcss/resolveConfig";
