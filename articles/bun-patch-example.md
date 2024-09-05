@@ -29,8 +29,8 @@ https://bun.sh/docs/install/patch
 patchの対象パッケージは基本的にどれでも大丈夫だと思います。
 
 ```sh
-# ライブラリのインストール
-❯ bun add @elysiajs/swagger@1.1.1
+# パッケージのインストール
+bun add @elysiajs/swagger@1.1.1
 ```
 
 パッケージがインストールできたら、以下のコマンドを実行します。
@@ -42,8 +42,12 @@ bun patch <pkg>
 今回の場合:(pathが長いので置き換えています。)
 
 ```sh
-❯ bun patch @elysiajs/swagger@1.1.1
+bun patch @elysiajs/swagger@1.1.1
+```
 
+出力結果:
+
+```sh
 To patch @elysiajs/swagger, edit the following folder:
 
   /your/dir/node_modules/@elysiajs/swagger
