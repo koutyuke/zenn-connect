@@ -6,7 +6,7 @@ topics: ["typescript", "tailwindcss"]
 published: true
 ---
 
-初めまして、NITICのこうちゅけです。
+こんにちは〜、NITICのこうちゅけです。
 
 皆さん、Tailwindcss使ってますか？
 `.css`ファイルを作成せずにスタイルコーディングできるTailwindcssはとてもいいものですよね。
